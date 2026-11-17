@@ -1,0 +1,25 @@
+{
+  "name": "sportgere",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@12.3.4",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
+  },
+  "scripts": {
+    "dev": "pnpm dev:web",
+    "dev:web": "pnpm --dir apps/web dev",
+    "dev:api": "cd apps/api && uv run api",
+    "lint": "pnpm lint:web && pnpm lint:api",
+    "lint:web": "pnpm --dir apps/web lint",
+    "lint:api": "cd apps/api && uv run ruff check .",
+    "typecheck": "pnpm typecheck:web && pnpm typecheck:api",
+    "typecheck:web": "pnpm --dir apps/web typecheck",
+    "typecheck:api": "cd apps/api && uv run mypy .",
+    "test": "pnpm test:api && pnpm test:web",
+    "test:web": "pnpm --dir apps/web test",
+    "test:api": "cd apps/api && uv run pytest",
+    "build": "pnpm build:web",
+    "build:web": "pnpm --dir apps/web build"
+  }
+}
